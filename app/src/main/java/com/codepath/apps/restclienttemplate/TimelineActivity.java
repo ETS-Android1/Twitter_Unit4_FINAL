@@ -57,20 +57,20 @@ public class TimelineActivity extends AppCompatActivity {
         adapter = new TweetsAdapter(this, tweets);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        //configure the recycler view
+        //configure the recycler viewers
+        //rvTweets.setLayoutManager(new LinearLayoutManager(this));
         rvTweets.setLayoutManager(layoutManager);
         rvTweets.setAdapter(adapter);
+
         scrollListener = new EndlessRecyclerViewScrollListener(layoutManager) {
             @Override
             public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
                 Log.i(TAG, "onLoadMore: " + page);
                 loadMoreData();
-
             }
         };
         // Adds the scroll listener to RecyclerView
         rvTweets.addOnScrollListener(scrollListener);
-
         populateHomeTimeline();
     }
 
@@ -90,8 +90,6 @@ public class TimelineActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
-
             }
 
             @Override
@@ -119,13 +117,11 @@ public class TimelineActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     Log.e(TAG, "Json Exception", e);
                 }
-
             }
 
             @Override
             public void onFailure(int statusCode, Headers headers, String response, Throwable throwable) {
                 Log.e(TAG, "onFailure" + response, throwable);
-
             }
         });
     }

@@ -6,14 +6,15 @@ import org.json.JSONObject;
 public class User {
     public String name;
     public String stringName;
-    public String profileImageURL;
+    public String profileImageUrl;
     public String screenName;
 
     public static User fromJson(JSONObject jsonObject) throws JSONException {
         User user = new User();
-        user.name = jsonObject.getString("name"); //populate the fields
+        user.name = jsonObject.getString("name");
+        user.screenName = jsonObject.getString("screen_name");
+        user.profileImageUrl = jsonObject.getString("profile_image_url_https");
         user.stringName = jsonObject.getString("screen_name");
-        user.profileImageURL = jsonObject.getString("profile_image_url_https");
         return user;
 
     }

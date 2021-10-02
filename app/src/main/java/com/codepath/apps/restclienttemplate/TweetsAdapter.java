@@ -40,7 +40,6 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         Tweet tweet = tweets.get(position);
         //bind the tweet with view holder
         holder.bind(tweet);
-
     }
 
     @Override
@@ -65,19 +64,28 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         ImageView ivProfileImage;
         TextView tvBody;
         TextView tvScreenName;
+        TextView time;
+        TextView username;
+        TextView outsideBox;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ivProfileImage = itemView.findViewById(R.id.ivProfileImage);
             tvBody = itemView.findViewById(R.id.tvBody);
             tvScreenName = itemView.findViewById(R.id.tvScreenName);
+            time = itemView.findViewById(R.id.time);
+            username = itemView.findViewById(R.id.username);
+            outsideBox = itemView.findViewById(R.id.outsideBox);
 
         }
 
         public void bind(Tweet tweet) {
             tvBody.setText(tweet.body);
-            tvScreenName.setText(tweet.user.screenName);
-            Glide.with(context).load(tweet.user.profileImageURL).into(ivProfileImage);
+            tvScreenName.setText(tweet.user.name);
+            //tvScreenName.setText(tweet.user.screenName);
+            time.setText(tweet.newtime);
+            username.setText("@" + tweet.user.screenName);
+            Glide.with(context).load(tweet.user.profileImageUrl).into(ivProfileImage);
         }
     }
 }
