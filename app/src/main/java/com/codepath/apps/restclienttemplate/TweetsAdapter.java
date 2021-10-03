@@ -66,7 +66,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         TextView tvScreenName;
         TextView time;
         TextView username;
-        TextView outsideBox;
+//        TextView outsideBox;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -75,7 +75,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
             tvScreenName = itemView.findViewById(R.id.tvScreenName);
             time = itemView.findViewById(R.id.time);
             username = itemView.findViewById(R.id.username);
-            outsideBox = itemView.findViewById(R.id.outsideBox);
+//            outsideBox = itemView.findViewById(R.id.outsideBox);
 
         }
 
